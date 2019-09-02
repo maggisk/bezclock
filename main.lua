@@ -13,7 +13,7 @@ function love.load()
 end
 
 function love.update(dt)
-  local now = os.time() + 15 * 60
+  local now = os.time()
   if now == timestamp and millisecond > ANIMATION_TIME then
     -- sleep until next animation
     while os.time() == timestamp do
