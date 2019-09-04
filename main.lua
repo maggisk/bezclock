@@ -2,7 +2,7 @@ local C = require "const"
 
 -- clock state
 local timestamp = 0
-local millisecond = 0.0
+local millisecond = 1.0
 
 -- bezier curves created with the editor
 digits = {
@@ -29,11 +29,13 @@ function love.load()
   love.window.setFullscreen(true)
   love.mouse.setVisible(false)
   love.graphics.setLineWidth(3)
-  timestamp = os.time()
 end
 
 function love.update(dt)
-  if millisecond < C.ANIMATION_TIME then
+  if timestamp == 0 then
+    -- render once initially
+    timestamp = os.time()
+  elseif millisecond < C.ANIMATION_TIME then
     -- currently animating from one time to another
     millisecond = millisecond + dt
   elseif os.time() == timestamp then
@@ -85,5 +87,3 @@ function love.draw()
     end
   end
 end
-
-
