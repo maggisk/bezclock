@@ -1,0 +1,6 @@
+return {
+  DIGIT_HEIGHT = 250,
+  DIGIT_WIDTH  = 160,
+  COLON_WIDTH = 50,
+  ANIMATION_TIME = 1/3,
+}
